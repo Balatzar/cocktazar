@@ -1,0 +1,12 @@
+cocktazar_homepage:
+    path:     /
+    defaults: { _controller: CocktazarBundle:Default:index }
+
+cocktazar_cocktail:
+    path:     /cocktail/{id}
+    defaults: { _controller: CocktazarBundle:Cocktail:show }
+
+search:
+    path:     /search
+    defaults: { _controller: CocktazarBundle:Search:search }
+    methods: [GET, POST]

@@ -1,0 +1,25 @@
+CocktazarBundle\Entity\Recipe:
+    type: entity
+    oneToMany:
+        ingredients:
+            targetEntity: Ingredient
+            mappedBy: recipe
+    table: null
+    repositoryClass: CocktazarBundle\Repository\RecipeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        imageUrl:
+            type: string
+            length: 255
+        instructions:
+            type: string
+            length: 1000
+    lifecycleCallbacks: {  }

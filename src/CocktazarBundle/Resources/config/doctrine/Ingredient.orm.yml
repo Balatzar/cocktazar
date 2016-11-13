@@ -1,0 +1,25 @@
+CocktazarBundle\Entity\Ingredient:
+    type: entity
+    manyToOne:
+        recipe:
+            targetEntity: Recipe
+            inversedBy: ingredients
+            joinColumn:
+                name: recipe_id
+                referencedColumnName: id
+    table: null
+    repositoryClass: CocktazarBundle\Repository\IngredientRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        measure:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

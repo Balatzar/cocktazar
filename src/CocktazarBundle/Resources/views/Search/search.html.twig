@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+{% block title %}CocktazarBundle:Search:search{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Search:search page</h1>
+
+{% for ingredient in ingredients %}
+    <a href="/cocktail/{{ ingredient.recipe.id }}">
+      <div class="cocktail-card">
+        <h3>{{ ingredient.recipe.title }}</h3>
+        <img src="{{ ingredient.recipe.imageUrl }}" alt="">
+      </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}

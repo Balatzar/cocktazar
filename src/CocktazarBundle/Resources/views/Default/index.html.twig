@@ -1,0 +1,41 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+  <div class="content">
+    <header>
+      <h1 class="title">Cocktazar</h1>
+      <form action="{{ path('search') }}" method="POST" class="ui form search js-search">
+        <div class="field">
+          <label>Ingrédients</label>
+          <select name="ingredients[]" multiple="" class="ui dropdown">
+            <option value="">Recherchez un ingrédient</option>
+            {% for ingredient in ingredients %}
+              <option value="{{ ingredient }}">{{ ingredient }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button class="ui button primary" type="submit">Submit</button>
+        <div class="ui error message"></div>
+      </form>
+    </header>
+
+    <section>
+      <div class="cocktail-feed">
+        {% for recipe in recipes %}
+          <a href="/cocktail/{{ recipe.id }}">
+            <div class="cocktail-card">
+              <h3>{{ recipe.title }}</h3>
+              <img src="{{ recipe.imageUrl }}" alt="">
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/semantic.min.js') }}"></script>
+  <script src="{{ asset('js/index.js') }}"></script>
+{% endblock %}
